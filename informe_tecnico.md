@@ -235,10 +235,4 @@ El proyecto integró con éxito conceptos de sistemas embebidos (registro direct
 
 El desarrollo en dos fases permitió una comprensión progresiva: la Fase 1 (Bang-Bang) validó el hardware y la arquitectura eléctrica de forma rápida, mientras que la Fase 2 (PD/PID con TIM4) elevó el rendimiento a velocidades superiores gracias al control continuo y al amortiguamiento derivativo. La solución de doble sumidero ante el fallo del Canal B evidencia capacidad de resolución de problemas de ingeniería bajo restricciones reales de hardware.
 
-## 9. Referencias
-* STMicroelectronics. (2023). *STM32F401 Reference Manual (RM0368)*. st.com
-* Toshiba Semiconductor. (2015). *TB6612FNG Dual DC Motor Driver Datasheet*. toshiba.com
-* Pololu Corporation. (2023). *QTR-8A Reflectance Sensor Array User’s Guide*. pololu.com
-* ARM Limited. (2021). *Cortex-M4 Technical Reference Manual*. developer.arm.com
-* GNU Project. (2024). *GNU Arm Embedded Toolchain Documentation*. developer.arm.com
-* Franklin, G., Powell, J., & Emami-Naeini, A. (2019). *Feedback Control of Dynamic Systems (8th ed.)*. Pearson.
+
