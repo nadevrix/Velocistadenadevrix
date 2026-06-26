@@ -2,7 +2,7 @@
 **Robot Seguidor de Línea Velocista**  
 *Programación Bare-Metal en C • STM32F401/F411 • Bang-Bang y PD/PID*
 
-**Asignatura:** Sistemas Embebidos / Electrónica  
+**Asignatura:** Microcontroladores  
 **Microcontrolador:** STM32F401 / STM32F411 BlackPill (Bare-Metal C)  
 **Autor:** Rodrigo Ricaldez Martínez  
 **Fecha:** Junio 2026  

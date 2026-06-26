@@ -60,4 +60,4 @@ El firmware está diseñado para ser compilado en un entorno Linux (ej. Arch Lin
 
 ## Licencia y Autoría
 Proyecto académico desarrollado por **Rodrigo Ricaldez Martínez** (Junio 2026).
-Diseñado para la asignatura de Sistemas Embebidos / Electrónica.
+Diseñado para la asignatura de Microcontroladores.
