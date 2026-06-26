@@ -1,6 +1,7 @@
-# Código Velocista "MacGyver" (PID Completo)
-Este código utiliza el Timer 4 (TIM4) para enviar señales PWM independientes a los motores a pesar de estar conectados al único canal que sobrevivió en el driver TB6612FNG.
-Te permite usar el algoritmo PID clásico y realizar correcciones de giro suaves.
+# Anexo B: Lógica Proporcional-Derivativa (PD/PID) para STM32F4 BlackPill
+El presente documento contiene la implementación del algoritmo de control continuo (PID) desarrollado en C puro para el microcontrolador STM32F401 / STM32F411 (BlackPill).
+
+El código emplea los canales 3 y 4 del Timer 4 (TIM4) para generar señales PWM independientes por hardware, manteniendo la compatibilidad con la topología eléctrica de un solo canal en el puente H ("Low-Side Switching").
 
 ```c
 /**

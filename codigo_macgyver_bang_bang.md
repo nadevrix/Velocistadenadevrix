@@ -1,7 +1,7 @@
-# Código Velocista "MacGyver" (Bang-Bang)
-Este es el código 100% funcional que te sirvió para la pista con los motores en ON/OFF directo, usando la conexión MacGyver (motores conectados a VMOT y a AO1/AO2).
+# Anexo A: Lógica Discreta (Bang-Bang) para STM32F4 BlackPill
+El presente documento contiene la implementación del algoritmo de control discreto (Bang-Bang por zonas) desarrollado en C puro para el microcontrolador STM32F401 / STM32F411 (BlackPill).
 
-Guárdalo como tu "Plan B" indestructible.
+Este código incluye la modificación topológica de hardware ("Low-Side Switching" o "MacGyver Hack") en el puente H TB6612FNG, permitiendo el control independiente de dos motores DC utilizando únicamente el Canal A.
 
 ```c
 /**
