@@ -1,0 +1,134 @@
+
+Merging object attributes
+
+
+Discarded input sections
+
+ .text          0x00000000        0x0 main.o
+ .data          0x00000000        0x0 main.o
+ .bss           0x00000000        0x0 main.o
+ .comment       0x00000000       0x1f main.o
+ .ARM.attributes
+                0x00000000       0x34 main.o
+ .text          0x00000000        0x0 startup.o
+ .data          0x00000000        0x0 startup.o
+ .bss           0x00000000        0x0 startup.o
+ .comment       0x00000000       0x1f startup.o
+ .ARM.attributes
+                0x00000000       0x34 startup.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00080000         xr
+SRAM             0x20000000         0x00020000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD main.o
+LOAD startup.o
+                0x20020000                        _estack = (ORIGIN (SRAM) + LENGTH (SRAM))
+
+.isr_vector     0x08000000      0x194
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x194 startup.o
+                0x08000000                isr_vectors
+                0x08000194                        . = ALIGN (0x4)
+
+.text           0x08000194      0x3b0
+                0x08000194                        . = ALIGN (0x4)
+ *(.text)
+ *(.text*)
+ .text.delay_ms
+                0x08000194       0x26 main.o
+ *fill*         0x080001ba        0x2 
+ .text.uart_putc
+                0x080001bc       0x14 main.o
+ .text.uart_print
+                0x080001d0       0x12 main.o
+ *fill*         0x080001e2        0x2 
+ .text.startup.main
+                0x080001e4      0x2cc main.o
+                0x080001e4                main
+ .text.Default_Handler
+                0x080004b0        0x2 startup.o
+                0x080004b0                DebugMon_Handler
+                0x080004b0                HardFault_Handler
+                0x080004b0                SysTick_Handler
+                0x080004b0                PendSV_Handler
+                0x080004b0                NMI_Handler
+                0x080004b0                UsageFault_Handler
+                0x080004b0                Default_Handler
+                0x080004b0                MemManage_Handler
+                0x080004b0                SVC_Handler
+                0x080004b0                BusFault_Handler
+ *fill*         0x080004b2        0x2 
+ .text.Reset_Handler
+                0x080004b4       0x58 startup.o
+                0x080004b4                Reset_Handler
+ *(.rodata)
+ *(.rodata*)
+ .rodata.main.str1.1
+                0x0800050c       0x35 main.o
+                                 0x38 (size before relaxing)
+                0x08000544                        . = ALIGN (0x4)
+ *fill*         0x08000541        0x3 
+                0x08000544                        _etext = .
+                0x08000544                        _sidata = LOADADDR (.data)
+
+.glue_7         0x08000544        0x0
+ .glue_7        0x08000544        0x0 linker stubs
+
+.glue_7t        0x08000544        0x0
+ .glue_7t       0x08000544        0x0 linker stubs
+
+.vfp11_veneer   0x08000544        0x0
+ .vfp11_veneer  0x08000544        0x0 linker stubs
+
+.v4_bx          0x08000544        0x0
+ .v4_bx         0x08000544        0x0 linker stubs
+
+.iplt           0x08000544        0x0
+ .iplt          0x08000544        0x0 main.o
+
+.rel.dyn        0x08000544        0x0
+ .rel.iplt      0x08000544        0x0 main.o
+
+.data           0x20000000        0x0 load address 0x08000544
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data)
+ *(.data*)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x08000544
+ .igot.plt      0x20000000        0x0 main.o
+
+.bss            0x20000000       0x30 load address 0x08000544
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sbss = .
+ *(.bss)
+ *(.bss*)
+ .bss.sensor_val
+                0x20000000        0x8 main.o
+                0x20000000                sensor_val
+ .bss.raw_val   0x20000008       0x20 main.o
+                0x20000008                raw_val
+ .bss.tele_count
+                0x20000028        0x4 main.o
+ .bss.ultimo_estado
+                0x2000002c        0x4 main.o
+                0x2000002c                ultimo_estado
+ *(COMMON)
+                0x20000030                        . = ALIGN (0x4)
+                0x20000030                        _ebss = .
+
+/DISCARD/
+ *(.ARM.attributes)
+ *(.comment)
+ *(.ARM.exidx*)
+OUTPUT(velocista.elf elf32-littlearm)
+LOAD linker stubs
